@@ -16,10 +16,12 @@ class Login extends React.Component {
 
     this.setState(() => ({
       [name]: value,
-    }));
+    }), () => this.validateInput());
+  };
 
+  validateInput = () => {
     const { nameInput } = this.state;
-    const minLength = 2;
+    const minLength = 3;
     if (nameInput.length >= minLength) {
       this.setState(() => ({
         isSaveButtonDisabled: false,

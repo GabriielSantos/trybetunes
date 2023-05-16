@@ -15,6 +15,12 @@ class Search extends React.Component {
       [name]: value,
     }));
 
+    this.setState(() => ({
+      ButtonDisabled: true,
+    }), () => this.validateInput());
+  };
+
+  validateInput = () => {
     const { nameSearch } = this.state;
     const minLength = 2;
     if (nameSearch.length >= minLength) {
@@ -32,8 +38,8 @@ class Search extends React.Component {
         <form action="">
           <input
             type="text"
-            name="artist"
-            id="artist"
+            name="nameSearch"
+            id="nameSearch"
             data-testid="search-artist-input"
             onChange={ this.validateSearch }
           />
