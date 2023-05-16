@@ -33,14 +33,14 @@ class Header extends React.Component {
       <header data-testid="header-component">
         <nav>
           <NavLink to="/search" activeClassName="active" data-testid="link-to-search">
-            Pesquisa
+            Search
           </NavLink>
           <NavLink
             to="/favorites"
             activeClassName="active"
             data-testid="link-to-favorites"
           >
-            Favoritas
+            Favorites
           </NavLink>
           <NavLink to="/profile" activeClassName="active" data-testid="link-to-profile">
             Profile
