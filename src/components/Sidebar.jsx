@@ -12,9 +12,6 @@ class Sidebar extends React.Component {
           <NavLink to="/search" activeClassName="active">
             Pesquisa
           </NavLink>
-          <NavLink to="/album/id:" activeClassName="active">
-            Album
-          </NavLink>
           <NavLink to="/favorites" activeClassName="active">
             Favoritas
           </NavLink>
