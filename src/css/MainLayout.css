@@ -1,0 +1,15 @@
+.wrapper {
+  padding: 16px;
+}
+
+h1, h2, h3, h4, p {
+  margin-bottom: 0.8rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+div {
+  margin-bottom: 0.4rem;
+}
