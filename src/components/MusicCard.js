@@ -1,18 +1,34 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
   state = {
     loading: false,
-    favoriteMusic: false,
+    isFavorite: false,
+    favoritesMusics: undefined,
   };
 
-  addFavoriteMusic = async ({ target }) => {
+  componentDidMount() {
+    this.addFavoriteMusic();
+  }
+
+  addFavoriteMusic = () => {
+    this.setState({
+      loading: false,
+    }, async () => {
+      const favoritesMusics = await getFavoriteSongs();
+      this.setState({
+        favoritesMusics,
+      });
+    });
+  };
+
+  verifyFavorite = async ({ target }) => {
     const { music } = this.props;
     this.setState({
-      favoriteMusic: target.checked,
+      isFavorite: target.checked,
       loading: true,
     });
     await addSong(music);
@@ -24,7 +40,7 @@ class MusicCard extends React.Component {
   render() {
     const { music } = this.props;
     const { trackName, previewUrl, trackId } = music;
-    const { favoriteMusic, loading } = this.state;
+    const { isFavorite, loading, favoritesMusics } = this.state;
     return (
       <div>
         { loading ? <Loading /> : (
@@ -39,19 +55,28 @@ class MusicCard extends React.Component {
               .
             </audio>
 
-            <label
-              htmlFor="favoriteSong"
-            >
+            <label htmlFor="favoriteSong">
               Favorita
+              {favoritesMusics && favoritesMusics
+                .find((favorite) => favorite.trackId === trackId) !== undefined
+                ? (
+                  <input
+                    type="checkbox"
+                    data-testid={ `checkbox-music-${trackId}` }
+                    onChange={ this.handleFavorites }
+                    checked
+                  />)
+                : (
+                  <input
+                    type="checkbox"
+                    name="favoriteSong"
+                    id="favoriteSong"
+                    data-testid={ `checkbox-music-${trackId}` }
+                    checked={ isFavorite }
+                    onChange={ this.verifyFavorite }
+                  />
+                )}
             </label>
-            <input
-              type="checkbox"
-              name="favoriteSong"
-              id="favoriteSong"
-              data-testid={ `checkbox-music-${trackId}` }
-              checked={ favoriteMusic }
-              onChange={ this.addFavoriteMusic }
-            />
           </div>
         )}
       </div>
