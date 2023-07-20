@@ -1,10 +1,38 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# TrybeTunes
+
+# Contexto
+Este projeto consiste em uma aplicação de músicas, onde através de uma API do iTunes, você tem acesso a diversas músicas para curtir uma prévia e favoritar as que desejar.
+
+## Técnologias usadas
+
+Front-end:
+> Desenvolvido usando: React.js, Gerenciamento de Estados Locais, PropDrilling,  React Route, Javascript, CSS3, HTML5.
+
+## Instalando Dependências
+
+> Frontend
+```bash
+  npm install
+``` 
+## Executando aplicação
+
+* Para rodar o front-end:
+
+  ```
+    npm start
+  ```
+
+## Executando Testes
+
+* Para rodar todos os testes:
+  
+  Rode o projeto em um terminal com o comando de execução, depois execute em um __outro terminal__ o comando abaixo:
+  ```
+    npm run cy:open
+  ```
+
+## Acesso
+
+* Para acessar o projeto:
+
+  CSS AINDA EM CONSTRUÇÃO..
